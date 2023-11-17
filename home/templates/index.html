@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+      <title>Hello, world!</title>
+  </head>
+  <body>
+    <br>
+    {% if phone %}
+    <div class="container">
+        <div class="row">
+            {% for item in phone %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card text-white bg-primary mb-3" style="width: 100%">
+                    <div class="card-header">{{ item.title }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}={{ item.number }}</h5>
+                        <p class="card-text">{{ item.description | slice:'120' }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+        {% include 'pagination.html' with page=phone %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
